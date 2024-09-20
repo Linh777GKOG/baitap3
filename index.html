@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encryption Interface</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Encryption Interface</h1>
+      <div class="encryption-type">
+        <label for="encryption-select">Chọn loại mã hóa:</label>
+        <select id="encryption-select" onchange="showOptions()">
+          <option value="">--Chọn--</option>
+          <option value="classic">Mã hóa cổ điển</option>
+          <option value="block">Mã hóa khối</option>
+        </select>
+      </div>
+      <div id="classic-options" class="options" style="display: none">
+        <label for="classic-select">Chọn phương pháp:</label>
+        <select id="classic-select">
+          <option value="caesar">Mã Caesar</option>
+          <option value="affine">Affine</option>
+          <option value="vigenere">Vigenere</option>
+          <option value="hill">Hill</option>
+        </select>
+      </div>
+      <div id="block-options" class="options" style="display: none">
+        <label for="block-select">Chọn phương pháp:</label>
+        <select id="block-select">
+          <option value="des">DES</option>
+          <option value="aes">AES</option>
+        </select>
+      </div>
+      <div class="input-output">
+        <label for="plain-text">Bản rõ:</label>
+        <textarea
+          id="plain-text"
+          placeholder="Nhập bản rõ hoặc tải lên tệp"
+        ></textarea>
+        <input
+          type="file"
+          id="plain-file"
+          onchange="loadFile(event, 'plain-text')"
+        />
+      </div>
+      <div class="input-output">
+        <label for="cipher-text">Bản mã:</label>
+        <textarea
+          id="cipher-text"
+          placeholder="Nhập bản mã hoặc tải lên tệp"
+        ></textarea>
+        <input
+          type="file"
+          id="cipher-file"
+          onchange="loadFile(event, 'cipher-text')"
+        />
+      </div>
+      <div class="action-buttons">
+        <button onclick="encode()">Encode</button>
+        <button onclick="decode()">Decode</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
